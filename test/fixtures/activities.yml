@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date_time_performed: 2014-10-22 19:44:27
+  hours: 9.99
+  description: MyText
+  billable: false
+  posted: 2014-10-22 19:44:27
+
+two:
+  name: MyString
+  date_time_performed: 2014-10-22 19:44:27
+  hours: 9.99
+  description: MyText
+  billable: false
+  posted: 2014-10-22 19:44:27
