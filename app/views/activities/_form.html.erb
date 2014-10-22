@@ -1,41 +1,46 @@
-<%= form_for(@activity) do |f| %>
-  <% if @activity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
-
-      <ul>
-      <% @activity.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @activity, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :date_time_performed, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.datetime_select :date_time_performed, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hours, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :hours, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :billable, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :billable, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :posted, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.datetime_select :posted, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :date_time_performed %><br>
-    <%= f.datetime_select :date_time_performed %>
-  </div>
-  <div class="field">
-    <%= f.label :hours %><br>
-    <%= f.text_field :hours %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :billable %><br>
-    <%= f.check_box :billable %>
-  </div>
-  <div class="field">
-    <%= f.label :posted %><br>
-    <%= f.datetime_select :posted %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  activities_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
